@@ -14,3 +14,10 @@ app.config(function($routeProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
 });
+
+app.controller('TransactionsHistoryCtrl', function($scope, $http) {
+    $http.get("/history")
+        .then(function(response) {
+          $scope.transactions = response.data;
+    });
+});
