@@ -1,7 +1,6 @@
 var app = angular.module('bankAppTest', ['bankApp', 'ngMockE2E']);
 
 app.run(function($httpBackend) {
-
     var regPath = /^view\//;
 
     var transactions = [
@@ -27,11 +26,4 @@ app.run(function($httpBackend) {
 
     $httpBackend.whenGET('/history').respond(transactions);
     $httpBackend.whenGET(regPath).passThrough();
-});
-
-app.controller('Ctrl', function($scope, $http) {
-    $http.get("/history")
-        .then(function(response) {
-          $scope.transactions = response.data;
-    });
 });
