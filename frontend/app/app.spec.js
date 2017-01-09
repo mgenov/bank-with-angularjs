@@ -1,5 +1,5 @@
 describe('Routing', function() {
-    beforeEach(module('bankApp'));
+    beforeEach(angular.mock.module('bankApp'));
 
     it('Should map routes to controllers', function() {
         inject(function($route) {

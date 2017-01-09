@@ -1,3 +1,5 @@
+import angular from 'angular'
+
 /**
  * `require` all modules in the given webpack context
  */
