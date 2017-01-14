@@ -2,6 +2,7 @@
 var webpackConfig = require('./webpack.config.js');
 const commonsChunkPluginIndex = webpackConfig.plugins.findIndex(plugin => plugin.chunkNames);
 webpackConfig.plugins.splice(commonsChunkPluginIndex, 1);
+webpackConfig.devtool = 'inline-source-map';
 
 module.exports = function(config) {
   config.set({
@@ -29,8 +30,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './index.spec.js': ['webpack'],
-      'src/**/*.spec.js': ['webpack']
+      './index.spec.js': ['webpack', 'sourcemap'],
+      'src/**/*.spec.js': ['webpack', 'sourcemap']
     },
 
     // test results reporter to use

@@ -18,6 +18,7 @@
     "karma": "^0.13.22",
     "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.1",
     "ng-cache-loader": "0.0.22",
     "webpack": "^1.14.0"
