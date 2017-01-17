@@ -1,17 +1,17 @@
 package com.clouway.core;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author Borislav Gadjev <gadjevb@gmail.com>
  */
 public class Transaction {
-  public final LocalDate date;
+  public final Date date;
   public final String user;
   public final String type;
   public final Double amount;
 
-  public Transaction(LocalDate date, String user, String type, Double amount) {
+  public Transaction(Date date, String user, String type, Double amount) {
     this.date = date;
     this.user = user;
     this.type = type;

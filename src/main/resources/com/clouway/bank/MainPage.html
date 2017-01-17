@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
-    <link rel="stylesheet" type="text/css" href="/assets/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <base href="/"/>
 </head>
 <body ng-app="bankApp">
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ng-href="/">myBank</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-href="login">Login</a></li>
+                <li><a ng-href="register">Register</a></li>
+                <li><a ng-href="history">Transaction</a></li>
+                <li><a ng-href="devinfo">Developer info</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
 <div ng-view></div>
 
 <script src="/assets/vendor.bundle.js"></script>

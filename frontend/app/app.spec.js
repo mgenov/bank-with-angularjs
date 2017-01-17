@@ -24,7 +24,7 @@ describe('TransactionsHistoryCtrl', function() {
     $controller('TransactionsHistoryCtrl', { $scope: $scope, $http: $http });
 
     $httpBackend
-      .expect('GET', '/history')
+      .expect('GET', '/v1/transactions')
       .respond(200, { foo: 'bar' });
     $httpBackend.flush();
 
@@ -36,7 +36,7 @@ describe('TransactionsHistoryCtrl', function() {
     $controller('TransactionsHistoryCtrl', { $scope: $scope, $http: $http });
 
     $httpBackend
-      .expect('GET', '/history')
+      .expect('GET', '/v1/transactions')
       .respond(200, [1,2,3]);
     $httpBackend.flush();
 

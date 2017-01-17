@@ -10,7 +10,7 @@ function requireAll(context) {
 requireAll(require.context(
         './app',
         /* use subdirectories: */ true,
-        /^(?!.*(spec.js$|e2e.js)).*\.js$/
+        /^(?!.*(spec.js$|e2e.js|test.js)).*\.js$/
 ));
 
 requireAll(require.context(

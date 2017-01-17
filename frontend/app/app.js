@@ -19,7 +19,7 @@ app.controller('TransactionsHistoryCtrl', function($scope, $http) {
   // an empty list of transactions should be displayed 
   // before loading of the history
   $scope.transactions = [];
-  $http.get("/history")
+  $http.get("/v1/transactions")
     .then(function(response) {
       $scope.transactions = response.data;
     });
