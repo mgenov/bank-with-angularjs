@@ -2,7 +2,10 @@ package com.clouway.adapter.builder;
 
 import com.google.gson.*;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -12,7 +15,7 @@ import java.util.Set;
  */
 @SuppressWarnings("all")
 public class JsonBuilder {
-  private static final Gson GSON = new Gson();
+  private static final Gson GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 
   public static JsonBuilder aNewJson() {
     return new JsonBuilder(new JsonObject());
@@ -60,10 +63,10 @@ public class JsonBuilder {
 
   public JsonBuilder add(String property, LocalDate value) {
     JsonObject o = new JsonObject();
-    o.addProperty("year", value.getYear());
-    o.addProperty("month", value.getMonthValue());
-    o.addProperty("day", value.getDayOfMonth());
-    target.getAsJsonObject().add(property, o);
+    Date asDate = Date.from(LocalDate.of(2017, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+    target.getAsJsonObject().add(property, new JsonPrimitive(dateFormat.format(asDate)));
     return this;
   }
 

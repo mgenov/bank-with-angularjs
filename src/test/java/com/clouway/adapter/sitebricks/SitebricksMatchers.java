@@ -2,6 +2,7 @@ package com.clouway.adapter.sitebricks;
 
 import com.clouway.adapter.builder.JsonBuilder;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.sitebricks.headless.Reply;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -82,7 +83,7 @@ public class SitebricksMatchers {
     return new TypeSafeMatcher<Reply<?>>() {
       @Override
       protected boolean matchesSafely(Reply<?> item) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         Object value = property("entity", item);
         String jsonContent = gson.toJson(value);
 
@@ -102,11 +103,9 @@ public class SitebricksMatchers {
       }
 
       private String asJsonContent(Reply<?> reply) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         Object value = property("entity", reply);
-        String jsonContent = gson.toJson(value);
-
-        return jsonContent;
+        return gson.toJson(value);
       }
 
       private Object property(String fieldName, Reply<?> reply) {
