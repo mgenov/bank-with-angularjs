@@ -1,14 +1,14 @@
-package com.clouway.bank;
+package com.clouway.bank.adapter.http;
 
-import com.clouway.adapter.builder.JsonBuilder;
-import com.clouway.services.TransactionHistoryService;
+import com.clouway.bank.matchers.JsonBuilder;
+import com.clouway.bank.adapter.http.TransactionHistoryService;
 import com.google.sitebricks.headless.Reply;
 import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static com.clouway.adapter.sitebricks.SitebricksMatchers.containsJson;
-import static com.clouway.adapter.sitebricks.SitebricksMatchers.isOk;
+import static com.clouway.bank.matchers.SitebricksMatchers.containsJson;
+import static com.clouway.bank.matchers.SitebricksMatchers.isOk;
 import static org.junit.Assert.assertThat;
 
 /**

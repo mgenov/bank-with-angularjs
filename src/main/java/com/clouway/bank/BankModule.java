@@ -1,6 +1,6 @@
 package com.clouway.bank;
 
-import com.clouway.services.TransactionHistoryService;
+import com.clouway.bank.adapter.http.TransactionHistoryService;
 import com.google.common.io.ByteStreams;
 import com.google.sitebricks.SitebricksModule;
 import com.google.sitebricks.SitebricksServletModule;

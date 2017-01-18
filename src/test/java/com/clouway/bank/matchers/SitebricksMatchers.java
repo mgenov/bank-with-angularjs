@@ -1,6 +1,6 @@
-package com.clouway.adapter.sitebricks;
+package com.clouway.bank.matchers;
 
-import com.clouway.adapter.builder.JsonBuilder;
+import com.clouway.bank.matchers.JsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.sitebricks.headless.Reply;
@@ -8,7 +8,6 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 
