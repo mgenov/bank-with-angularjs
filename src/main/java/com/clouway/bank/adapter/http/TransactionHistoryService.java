@@ -1,7 +1,7 @@
-package com.clouway.services;
+package com.clouway.bank.adapter.http;
 
 import com.clouway.bank.adapter.http.Json;
-import com.clouway.core.Transaction;
+import com.clouway.bank.core.Transaction;
 import com.google.sitebricks.At;
 import com.google.sitebricks.headless.Reply;
 import com.google.sitebricks.http.Get;

@@ -1,4 +1,4 @@
-package com.clouway.core;
+package com.clouway.bank.core;
 
 import java.util.Date;
 

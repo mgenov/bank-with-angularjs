@@ -1,4 +1,4 @@
-package com.clouway.adapter.builder;
+package com.clouway.bank.matchers;
 
 import com.google.gson.*;
 
