@@ -2,6 +2,7 @@ var webpack = require('webpack')
 var path = require('path')
 
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   watch: true,
@@ -11,7 +12,8 @@ module.exports = {
     vendor: [
       'jquery',
       'angular',
-      'angular-route'
+      'angular-route',
+      'bootstrap'
     ]
   },
   output: {
@@ -31,8 +33,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "css-loader",
-        options: { relativeUrls: false }
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader?-url", {publicPath: '../'}),
+        options: {relativeUrls: false}
       },
       {
         test: /\.html$/,
@@ -40,15 +42,19 @@ module.exports = {
       },
       {
         test: /\.(jp?g|png|gif|svg)$/i,
-        loader:'file'
+        loader: 'file'
       },
       {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file",
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'
       },
       {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream"
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
     ]
   },
@@ -58,7 +64,10 @@ module.exports = {
       jQuery: "jquery"
     }),
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    new webpack.HotModuleReplacementPlugin()
+    new ExtractTextPlugin("/styles/style.css"),
+    new CopyWebpackPlugin([
+      {from: './node_modules/bootstrap/dist/fonts', to: 'fonts'},
+    ]),
   ],
   devServer: {
     hot: true,

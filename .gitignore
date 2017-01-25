@@ -3,6 +3,7 @@ lib
 out
 target
 static
+bin
 .idea
 *.iml
 *.ipr

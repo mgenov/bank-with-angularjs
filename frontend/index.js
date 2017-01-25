@@ -1,5 +1,6 @@
 import angular from 'angular'
 
+require('./node_modules/bootstrap/dist/css/bootstrap.css');
 /**
  * `require` all modules in the given webpack context
  */
@@ -17,4 +18,10 @@ requireAll(require.context(
         './app/view',
         /* use subdirectories: */ true,
         /\.html$/
+));
+
+requireAll(require.context(
+        './app',
+        /* use subdirectories: */ true,
+        /\.css$/
 ));

@@ -29,7 +29,7 @@ public class BankBootstrap {
     Logger mongoLogger = Logger.getLogger( "org.mongodb" );
     mongoLogger.setLevel(Level.SEVERE); // e.g. or Log.WARNING, etc.
 
-    final int httpPort = 8081;
+    final int httpPort = 8080;
 
     MongoClientOptions options = MongoClientOptions.builder()
             .connectionsPerHost(5)
@@ -66,7 +66,7 @@ public class BankBootstrap {
     }
 
     PersistentAccountRepository accountRepository = new PersistentAccountRepository(Providers.of(client.getDatabase("bankApp")));
-    Account account = accountRepository.register("A", 24d);
+    Account account = accountRepository.register("Gosho", 24d);
 
     Jetty jetty = new Jetty(httpPort, client, account.id);
     jetty.start();

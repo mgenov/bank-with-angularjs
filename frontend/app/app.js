@@ -45,7 +45,7 @@ app.controller('HomePageCtrl', function ($scope, $http) {
     });
   }
 
-  $scope.closeAlert = function(index) {
+  $scope.closeAlert = function (index) {
     $scope.alerts.splice(index, 1);
   };
 });
